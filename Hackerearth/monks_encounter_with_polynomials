@@ -1,0 +1,23 @@
+https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/monks-encounter-with-polynomial/
+
+    #include <iostream>
+    #include<math.h>
+    using namespace std;
+     
+    int main()
+    {
+    	long a, b, c, k, t;
+    	float x;
+    	cin>>t;
+    	while(t--)
+    	{
+    	cin>>a>>b>>c>>k;
+    	c-=k;
+    	x=((-1*b)+float(sqrt((b*b)-(4*a*c))))/(2*a);
+    	if(x<0 || ((b*b)-(4*a*c))<0)
+    		cout<<"0"<<endl;
+    	else
+    		cout<<ceil(x)<<endl;
+    	}
+     return 0;
+    }

@@ -1,0 +1,46 @@
+https://www.hackerearth.com/problem/algorithm/the-hound-vs-the-mountain-2/
+
+    #include <iostream>
+    #include<math.h>
+    using namespace std;
+     
+    int convert(int no)
+    {
+        long bin, dec = 0, rem, num, base = 1;
+        bin=no;
+        while (no>0)
+        {
+            rem = no % 10;
+            dec = dec + rem * base;
+            base = base * 2;
+            no = no / 10;
+        }
+    	return dec;
+    }
+     
+    int main() {
+    	int a, b, t;
+    	cin>>t;
+    	char *w;
+    	w=new char[t];
+    	for(int i=0; i<t; i++)
+    	{
+    		cin>>a>>b;
+    		a=convert(a);
+    		b=convert(b);
+    		if(pow(a, b)>=pow(b,a))
+    		{
+    			w[i]='m';
+    		}
+    		else if(pow(a,b)<pow(b,a))
+    			w[i]='h';
+    	}
+    	for(int i=0; i<t; i++)
+    	{
+    		if(w[i]=='h')
+    			cout<<"The Hound\n";
+    		else
+    			cout<<"The Mountain\n";
+    	}
+    	return 0;
+    }

@@ -1,0 +1,27 @@
+https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/practice-problems/algorithm/chandu-and-consecutive-letters/
+
+    #include <iostream>
+    using namespace std;
+     
+    int main() {
+    	string a;
+    	int t;
+    	cin>>t;
+    	while(t--)
+    	{
+    	string ans;
+    	int cntr=0;
+    	cin>>a;
+    	ans+=a[0];
+    	for(int i=1; i<a.length(); i++)
+    	{
+    		if(ans[cntr]!=a[i])
+    		{
+    			cntr++;
+    			ans+=a[i];
+    		}
+    	}
+    	cout<<ans<<endl;
+    	}
+    	return 0;
+    }

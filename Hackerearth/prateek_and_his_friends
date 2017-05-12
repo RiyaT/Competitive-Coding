@@ -1,0 +1,36 @@
+https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/prateek-and-his-friends/
+
+    #include <iostream>
+    using namespace std;
+     
+    int main() {
+    	int t;
+    	cin>>t;
+    	while(t--)
+    	{
+    		int n, x, *a, c1=0, c2=0, sum=0;
+    		char ans='N';
+    		cin>>n>>x;
+    		a=new int[n];
+    		for(int i=0; i<n; i++)
+    			cin>>a[i];
+    		while(c2<=n && ans=='N')
+    		{
+    			if(sum<x){
+    				sum+=a[c2++];
+    			}
+    			else if(sum>x){
+    				sum-=a[c1++];
+    			}
+    			if(sum==x)
+    			{
+    				ans='Y';
+    			}
+    		}
+    		if(ans=='Y')
+    			cout<<"YES"<<endl;
+    		else
+    			cout<<"NO"<<endl;
+    	}
+    	return 0;
+    }

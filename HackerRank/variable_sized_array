@@ -1,0 +1,33 @@
+/* CPP CODE - contains code of main function only*/
+/* Link to the question : https://www.hackerrank.com/contests/code-cpp-3/challenges/variable-sized-arrays*/
+
+int n, q, **arr, ind, *ans, ch1, ch2;
+	std::cin>>n>>q;
+
+	arr=new int*[n];
+
+	for(int i=0; i<n; i++)
+	{
+		std::cin>>ind;
+		arr[i] = new int[ind];
+		for(int j=0; j<ind; j++)
+		{
+			std::cin>>arr[i][j];
+		}
+	}
+
+	ans=new int[q];
+
+	for(int i=0; i<q; i++)
+	{
+		std::cin>>ch1>>ch2;
+		ans[i]=arr[ch1][ch2];
+	}
+
+	for(int i=0; i<q; i++)
+	{
+		std::cout<<ans[i]<<std::endl;
+	}
+
+	return 0;
+}

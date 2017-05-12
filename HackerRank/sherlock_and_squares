@@ -1,0 +1,34 @@
+/*Link to question : https://www.hackerrank.com/challenges/sherlock-and-squares*/
+
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int calc(int lb, int ub)
+{
+	float a;
+	int b;
+	a=sqrt(lb);
+	b=int(sqrt(ub));
+	if((a-int(a)==0))
+		return (b-int(a)+1);
+	else
+		return (b-int(a));
+}
+
+int main() {
+	int n, ub, lb;
+	cin>>n;
+	int *ans;
+	ans=new int[n];
+	for(int i=0; i<n; i++)
+	{
+		cin>>lb>>ub;
+		ans[i]=calc(lb, ub);
+	}
+	for(int i=0; i<n; i++)
+	{
+		cout<<ans[i]<<"\n";
+	}
+	return 0;
+}

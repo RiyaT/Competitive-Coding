@@ -1,0 +1,65 @@
+https://www.hackerrank.com/challenges/time-conversion
+
+#include <iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+	int hr, min, sec;
+	char ap[2];
+	goto aaa;
+	aaa :
+	{
+		cin>>hr;
+		cout<<":";
+		cin>>min;
+		cout<<":";
+		cin>>sec;
+	}
+	if(hr>12 || hr<0 || min>59 || min<0 || sec>59 || sec<0 )
+		goto aaa;
+	cin>>ap;
+	if(strcmp(ap,"AM")==0 || strcmp(ap,"am")==0)
+	{
+		if(hr==12)
+				hr=00;
+		if(hr<10)
+			cout<<"0"<<hr<<":"<<min<<":"<<sec;
+		else if(min<10)
+			cout<<hr<<":0"<<min<<":"<<sec;
+		else if(sec<10)
+				cout<<hr<<":"<<min<<":0"<<sec;
+		else if(hr<10 && min<10)
+			cout<<"0"<<hr<<":0"<<min<<":"<<sec;
+		else if(sec<10 && min<10)
+			cout<<hr<<":0"<<min<<":0"<<sec;
+		else if(hr<10 && sec<10)
+			cout<<"0"<<hr<<":"<<min<<":0"<<sec;
+		else
+			cout<<"0"<<hr<<":0"<<min<<":0"<<sec;
+
+	}
+	else
+	{
+		if(hr==12)
+			hr+=1;
+		else
+			hr+=12;
+		if(hr<10 && min<10)
+			cout<<"0"<<hr<<":0"<<min<<":"<<sec;
+		else if(sec<10 && min<10)
+			cout<<hr<<":0"<<min<<":0"<<sec;
+		else if(hr<10 && sec<10)
+			cout<<"0"<<hr<<":"<<min<<":0"<<sec;
+		else if(hr<10 && sec<10 && min<10)
+			cout<<"0"<<hr<<":0"<<min<<":0"<<sec;
+		else if(hr<10)
+			cout<<"0"<<hr<<":"<<min<<":"<<sec;
+		else if(min<10)
+			cout<<hr<<":0"<<min<<":"<<sec;
+		else if(sec<10)
+			cout<<hr<<":"<<min<<":0"<<sec;
+	}
+	return 0;
+}

@@ -1,0 +1,68 @@
+https://www.hackerrank.com/challenges/angry-professor
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+
+class Discipline
+{   int i,x,T,N,K,total[1000],log[10];
+public:
+    Discipline()
+    {
+        i=1;
+        x=0;
+    }
+    void no_of_tests()
+    {   cin>>T;
+        if(!(T<=10)&&(T>=1))
+        {exit(0);}
+    }
+    void input()
+    {  int present=0,late=0;
+        while(T>=i)
+        {
+            cin>>N>>K;
+            if((N<1)||(N>1000)||(K<1)||(K>N))
+                exit(0);
+            for(int j=0;j<N;j++)
+            {
+                cin>>total[j];
+            }
+
+            for(int l=0;l<N;l++)
+            {
+                if(total[l]<=0)
+                {
+                    present++;
+                }
+            }
+                if(present>=K)
+                   {
+                    log[x]=1;
+                   }
+                   else
+                    log[x]=0;
+                x++;
+                i++;
+            }
+              }
+    void result()
+    {   int p=0;
+        for(p;p<x;p++)
+        {
+          if(log[p]==1)
+            cout<<"NO\n";
+          else
+            cout<<"YES\n";
+        }
+    }
+
+
+};
+int main()
+{
+    Discipline obj;
+    obj.no_of_tests();
+    obj.input();
+    obj.result();
+}

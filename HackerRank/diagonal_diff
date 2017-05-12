@@ -1,0 +1,36 @@
+/* Link to question : https://www.hackerrank.com/challenges/diagonal-difference*/
+
+#include <iostream>
+#include<stdlib.h>
+#include<math.h>
+using namespace std;
+
+int main() {
+	int n, i, j, flag=0;
+	long ans1=0, ans2=0;
+	cin>>n;
+	int arr[n][n];
+	for(i=0; i<n; i++)
+	{
+		for(j=0; j<n; j++)
+		{
+			cin>>arr[i][j];
+		}
+	}
+	for(i=0; i<n; i++)
+	{
+		ans1=ans1+arr[i][i];
+	}
+	i=0;
+	j=n-1;
+	do
+	{
+	ans2+=arr[i][j];
+	i++;
+	j--;
+	if(i==n && j<0)
+		{flag=1;}
+	}while(flag!=1);
+	cout<<fabs(ans1-ans2);
+	return 0;
+}

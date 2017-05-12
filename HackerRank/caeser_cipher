@@ -1,0 +1,39 @@
+https://www.hackerrank.com/challenges/caesar-cipher-1
+
+#include <iostream>
+#include<stdlib.h>
+using namespace std;
+
+int main() {
+	int n, k;
+	char *str;
+	cin>>n;
+	str=new char[n];
+	for(int i=0; i<n; i++)
+    cin>>str[i];
+    cin>>k;
+    for(int i=0; i<n; i++)
+    {
+    	if((str[i]>=65 && str[i]<=90) || (str[i]>=97 && str[i]<=122))
+    	{
+    		k=k%26;
+    		if(str[i]>=65 && str[i]<=90)
+    		{
+    			if((str[i]+k)>90)
+    			    cout<<char(65+str[i]+k-91);
+    			else
+    				cout<<char(str[i]+k);
+    		}
+    		else if(str[i]>=97 && str[i]<=122)
+    		{
+    			if((str[i]+k)>122)
+    				cout<<char(97+str[i]+k-123);
+    			else
+    				cout<<char(str[i]+k);
+    		}
+    	}
+    	else
+    		cout<<str[i];
+    }
+	return 0;
+}

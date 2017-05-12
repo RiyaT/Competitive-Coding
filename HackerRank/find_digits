@@ -1,0 +1,43 @@
+https://www.hackerrank.com/challenges/find-digits/
+
+#include <iostream>
+#include<iomanip>
+#include<stdlib.h>
+#include<math.h>
+using namespace std;
+
+void f_d(int digit)
+{
+	int cntn, cntd=0, no, digit1;
+	digit1=digit;
+	cntn=ceil(log10(fabs(digit)+1));
+	for(int i=0; i<cntn; i++)
+		{
+			no=digit1%10;
+			if(no!=0)
+			{
+				if(digit%no==0)
+				{
+					cntd++;
+				}
+			}
+			digit1=int(digit1/10);
+		}
+	cout<<cntd<<endl;
+}
+
+int main() {
+	int tc;
+	cin>>tc;
+	int *no;
+	no= new int[tc];
+	for(int i=0; i<tc; i++)
+	{
+		cin>>no[i];
+	}
+	for(int i=0; i<tc; i++)
+		{
+			f_d(no[i]);
+		}
+	return 0;
+}

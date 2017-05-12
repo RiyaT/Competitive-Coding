@@ -1,0 +1,39 @@
+https://www.hackerrank.com/challenges/plus-minus
+
+#include <iostream>
+using namespace std;
+
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+	int n, *p, i;
+	float pc=0, nc=0, zc=0;
+	cin>>n;
+	if(n>100 || n<1)
+				cin>>n;
+	p=new int[n];
+	for(i=0; i<n; i++)
+	{
+		cin>>p[i];
+		if(p[i]>100 || p[i]<-100)
+			cin>>p[i];
+		if(p[i]>0)
+			pc++;
+		else if(p[i]<0)
+			nc++;
+		else
+			zc++;
+	}
+	cout.setf(ios::fixed);
+	cout.precision(3);
+	cout<<pc/n;
+	cout<<endl;
+	cout<<nc/n;
+	cout<<endl;
+	cout<<zc/n;
+	cout<<endl;
+	return 0;
+}

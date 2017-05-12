@@ -1,0 +1,39 @@
+/* CPP CODE */
+/*Link to the question : https://www.hackerrank.com/contests/codestorm/challenges/ilia*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	long no;
+	cin>>no;
+	long *arr;
+	int countR=0, countA=0, countO=0;
+	arr=new long[no];
+	for(int i=0; i<no; i++)
+	{
+		cin>>arr[i];
+	}
+	for(int i=0; i<no; i++)
+	{
+		for(int j=(i+1); j<no; j++)
+		{
+			for(int k=(j+1); k<no; k++)
+			{
+
+				if((arr[i]+arr[j]>arr[k]) && (arr[i]+arr[k]>arr[j]) && (arr[k]+arr[j]>arr[i]))
+				{
+					if((arr[k]*arr[k])==((arr[i]*arr[i])+(arr[j]*arr[j])))
+						countR++;
+					else if((arr[k]*arr[k])<((arr[i]*arr[i])+(arr[j]*arr[j])))
+						countA++;
+					else if((arr[k]*arr[k])>((arr[i]*arr[i])+(arr[j]*arr[j])))
+						countO++;
+				}
+			}
+		}
+	}
+	cout<<countA<<" "<<countR<<" "<<countO;
+	return 0;
+}

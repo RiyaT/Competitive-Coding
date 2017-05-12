@@ -1,0 +1,42 @@
+/* CPP CODE */
+
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+
+int main(){
+    int n=0, rem=0, ans=0, temp=0;
+    cin >> n;
+    int count=0, size=ceil(log(n)/log(2));
+    int bin[size];
+    do
+    {
+        rem=n%2;
+        //cout<<endl<<"rem : "<<rem<<endl;
+        bin[count]=rem;
+        n=n/2;
+        count++;
+        //cout<<endl<<"count : "<<count<<endl;
+    }while(n>0);
+    for(int i=0; i<count; i++)
+    {
+    	//cout<<endl<<bin[i]<<" : "<<i;
+    	if(bin[i]!=0)
+    		{
+    		temp++;
+    		if(ans<temp)
+    		   	ans=temp;
+    		//cout<<endl<<"temp : "<<temp<<"ans : "<<ans;
+    		}
+    	else if(bin[i]==0)
+    	{
+    		if(ans<temp)
+    			ans=temp;
+    		temp=0;
+    	}
+    }
+    cout<<ans;
+    return 0;
+}
+

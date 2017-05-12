@@ -1,0 +1,22 @@
+https://www.hackerrank.com/challenges/library-fine
+
+#include <iostream>
+#include<stdlib.h>
+using namespace std;
+
+int main() {
+		int ad, ed, am, em, ay, ey;
+		cin>>ad>>am>>ay;
+		cin>>ed>>em>>ey;
+		if(!(ad>=1)&&(ad<=31)&&(ed>=1)&&(ed<=31)&&(am>=1)&&(am<=12)&&(em>=1)&&(em<=12)&&(ay>=1)&&(ay<=3000)&&(ey<=3000)&&(ey>=1))
+			exit(0);
+		else if (ay>=ey && ay!=ey)
+			cout<<"10000";
+		else if(ay>=ey && am>em)
+			cout<<(am-em)*500;
+		else if(am>=em && ay>=ey && ad>ed)
+			cout<<(ad-ed)*15;
+		else if(ay<=ey)
+			cout<<"0";
+	return 0;
+}

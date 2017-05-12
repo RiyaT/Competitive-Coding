@@ -1,0 +1,91 @@
+https://www.hackerrank.com/challenges/sherlock-and-the-beast
+
+
+#include <iostream>
+#include<iomanip>
+#include<stdlib.h>
+using namespace std;
+
+int divide(int digit)
+{
+	int d1;
+	d1=(digit/3)*3;
+	goto abc;
+	abc :
+	{if((digit-d1)%5!=0)
+		{
+			d1-=3;
+			if(d1<3)
+				return -1;
+			goto abc;
+		}
+	else
+		return d1;
+	}
+}
+
+void getNo(long digit)
+{
+if(digit<3)
+{
+	cout<<"-1"<<endl;
+}
+else if(digit==3)
+{
+	for(int i=0; i<digit; i++)
+			cout<<"5";
+	cout<<endl;
+}
+else if(digit==5)
+{
+	for(int i=0; i<digit; i++)
+			cout<<"3";
+	cout<<endl;
+}
+else
+{
+int d1 = divide(digit);
+if(d1==-1)
+{
+	if(digit%5==0)
+	{
+		for(int i=0; i<digit; i++)
+					cout<<"3";
+			cout<<endl;
+	}
+	else if(digit%3==0)
+	{
+		for(int i=0; i<digit; i++)
+				cout<<"5";
+		cout<<endl;
+	}
+	else
+	cout<<d1<<endl;
+}
+else
+{
+for(int i=0; i<d1; i++)
+			cout<<"5";
+for(int i=0; i<(digit-d1); i++)
+			cout<<"3";
+cout<<endl;
+}
+}
+}
+
+int main()
+{
+	int n;
+	cin>>n;
+	int *tc;
+	tc=new int[n];
+	for(int i=0; i<n; i++)
+	{
+		cin>>tc[i];
+	}
+	for(int i=0; i<n; i++)
+	{
+		getNo(tc[i]);
+	}
+	return 0;
+}

@@ -1,0 +1,83 @@
+/*CPP Code*/
+/*Link to the question : https://www.hackerrank.com/challenges/the-grid-search*/
+
+#include <iostream>
+#include<math.h>
+#include<stdlib.h>
+using namespace std;
+
+int main() {
+	int R, C, r, c, n, rem;
+	long int no;
+	cin>>n;
+	char *ans;
+	ans=new char[n];
+	for(int z=0; z<n; z++)
+	{
+		cin>>R>>C;
+		int arr_m[R][C];
+		for(int i=0; i<R; i++)
+		{
+			cin>>no;
+			for(int j=(C-1); j>=0; j--)
+			{
+				rem=no%10;
+				arr_m[i][j]=rem;
+				no=no/10;
+			}
+		}
+		cin>>r>>c;
+		if(r>R || c>C)
+		{
+			exit(0);
+		}
+		int arr_s[r][c];
+		for(int i=0; i<r; i++)
+		{
+			cin>>no;
+			for(int j=(c-1); j>=0; j--)
+			{
+				rem=no%10;
+				arr_m[i][j]=rem;
+				no=no/10;
+			}
+		}
+	int FLAG=1;
+	for(int i=0; i<R; i++)
+	{
+		for(int j=0; j<C; j++)
+		{
+			if(arr_m[i][j]==arr_s[0][0])
+			{
+				for(int k=i; k<i+r; k++)
+				{
+					for(int l=j; l<j+c; l++)
+					{
+						if(arr_m[k][l]!=arr_s[k-i][l-j])
+						{
+							FLAG=0;
+							break;
+						}
+						else
+							FLAG=1;
+					}
+				}
+			}
+
+		}
+	}
+	if(FLAG==0)
+		ans[z]='N';
+	else if(FLAG==1)
+		ans[z]='Y';
+	}
+	for(int z=0; z<n; z++)
+	{
+		if(ans[z]=='Y')
+			cout<<"NO\n";
+		else if(ans[z]=='N')
+			cout<<"YES\n";
+	}
+	return 0;
+}
+

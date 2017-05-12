@@ -1,0 +1,44 @@
+https://www.hackerrank.com/challenges/utopian-tree
+
+#include <iostream>
+#include<iomanip>
+#include<stdlib.h>
+using namespace std;
+
+void calc_h(int cycles)
+{
+	int i=1, h=1;
+	if(cycles==0)
+		cout<<"1"<<endl;
+	else if(cycles>0)
+	{
+		while(i<=cycles)
+		{
+			if(i%2!=0)
+			{
+				h*=2;
+				i++;
+			}
+			else
+			{
+				h+=1;
+				i++;
+			}
+		}
+		cout<<h<<endl;
+	}
+}
+
+int main()
+{
+	int tc;
+	cin>>tc;
+	int *arr;
+	arr=new int[tc];
+	for(int i=0; i<tc; i++)
+		cin>>arr[i];
+	for(int i=0; i<tc; i++)
+		calc_h(arr[i]);
+	return 0;
+}
+
